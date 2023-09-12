@@ -14,7 +14,7 @@ export default async function Home() {
   }
   //console.log(session);
   return (
-    <div>
+    <div className="h-screen flex flex-col items-center justify-center">
       <h1>{session.user.name}</h1>
       <Image
         src={session.user.image}
