@@ -13,9 +13,5 @@ export default async function Home() {
   if (session) {
     redirect("/home");
   }
-  return (
-    <div className="grid content-center align-middle">
-      <SignInWithGoogleButton />
-    </div>
-  );
+  return <SignInWithGoogleButton />;
 }
