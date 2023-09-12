@@ -1,9 +1,10 @@
 //"use client";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/authOptions";
 import { redirect } from "next/navigation";
 import { SessionServer } from "@/types";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 const SignOut = dynamic(() => import("@/components/SignOut"));
 
 export default async function Home() {
@@ -15,7 +16,13 @@ export default async function Home() {
   return (
     <div>
       <h1>{session.user.name}</h1>
-      <img src={session.user.image}></img>
+      <Image
+        src={session.user.image}
+        alt="foto de perfil"
+        width={50}
+        height={50}
+        className="m-3"
+      />
       <SignOut />
     </div>
   );
