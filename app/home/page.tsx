@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { SessionServer } from "@/types";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 const SignOut = dynamic(() => import("@/components/SignOut"));
 
 export default function Home() {
@@ -14,6 +14,7 @@ export default function Home() {
   //redirect("/");
   //}
   //let result = "no result";
+  const [location, setLocation] = useState("");
   useEffect(() => {
     const options = {
       enableHighAccuracy: true,
@@ -22,13 +23,13 @@ export default function Home() {
     };
     const successCallback = (position: any) => {
       if (position.coords.accuracy > 10) {
-        alert("The GPS accuracy isn't good enough");
+        setLocation("The GPS accuracy isn't good enough");
       } else {
-        alert(
+        setLocation(
           position.coords.latitude +
-            "latitud" +
+            " latitud, " +
             position.coords.longitude +
-            "longitud"
+            " longitud"
         );
       }
     };
@@ -64,6 +65,7 @@ export default function Home() {
           //session.user.name
         }
       </h1>
+      <h1>{location}</h1>
       <SignOut />
     </div>
   );
