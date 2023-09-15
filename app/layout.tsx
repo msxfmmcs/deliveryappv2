@@ -2,6 +2,11 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { NextAuthProvider } from "./providers";
+import dynamic from "next/dynamic";
+const Sidebar = dynamic(() => import("@/components/Sidebar"));
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
+import { SessionServer } from "@/types";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600"],
@@ -13,15 +18,22 @@ export const metadata: Metadata = {
   description: "testeo de app de delivery",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = (await getServerSession(authOptions)) as SessionServer;
+  //console.log(session, "session xD");
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <NextAuthProvider>{children}</NextAuthProvider>
+        <NextAuthProvider>
+          <div className="flex">
+            <Sidebar {...session} />
+            {children}
+          </div>
+        </NextAuthProvider>
       </body>
     </html>
   );
