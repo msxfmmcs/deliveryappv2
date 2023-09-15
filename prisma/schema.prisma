@@ -8,6 +8,12 @@ datasource db {
 }
 
 model Usuarios {
+    id String @id @default(uuid())
+    direccion String
+    ciudad String 
+    provincia String
     email String @unique
-    direccion String @unique
+    codigoPostal String
+    pais String
+    rol String
 }

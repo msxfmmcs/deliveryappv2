@@ -1,13 +1,33 @@
 export type Props = {
   children?: React.ReactNode;
 };
-export type SessionServer = {
+export const direccionesValidas = {
+  city: ["Villa La Angostura"],
+  country: ["ar"],
+  postcode: ["Q8407"],
+  state: ["Neuquén"],
+};
+export interface SessionServer {
   user: {
+    rol?: string;
     name: string;
     email: string;
     image: string;
+    direccion?: string;
+    ciudad?: string;
+    provincia?: string;
+    pais?: string;
+    id?: string;
   };
-};
+  expires?: string;
+}
+export interface InputFieldProps {
+  id: string;
+  name: string;
+  type: string;
+  placeholder: string;
+}
+
 export type ComercioRegisterData = {
   nombre: "";
   telefonoFijo: "" | string;
@@ -16,11 +36,9 @@ export type ComercioRegisterData = {
   dias: "";
   horarios: "";
   logo: "";
-  direccion: "";
+  address: "";
 };
 
-export const buttonStyle =
-  "bg-[#238523] rounded-md p-1 min-[200px]:w-[calc(20vw-10px)] m-1 min-[500px]:w-[90px] min-[200px]:text-[4vw] min-[400px]:text-[16px]";
 export type CurrentRol = "" | "comercio" | "repartidor" | "cliente";
 export const RolTypes = [
   {

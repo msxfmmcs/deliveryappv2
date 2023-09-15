@@ -3,11 +3,10 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { redirect } from "next/navigation";
 import { SessionServer } from "@/types";
-import dynamic from "next/dynamic";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+//import dynamic from "next/dynamic";
+//import Image from "next/image";
+//import { useEffect, useState } from "react";
 
-const Sidebar = dynamic(() => import("@/components/Sidebar"));
 //0)order bookmarks
 //reverse-geocoding API and geocoding (convertir direccion en latitud y latitud en direccion)
 //1)reverse-geocoding its gonna be used to get the delivery-man position (only do it in case of
@@ -29,6 +28,8 @@ export default async function Home() {
   const session = (await getServerSession(authOptions)) as SessionServer;
   if (!session) {
     redirect("/");
+  } else if (session.user.rol === undefined) {
+    redirect("/register");
   }
   //let result = "no result";
   //const [location, setLocation] = useState("");
@@ -65,7 +66,7 @@ export default async function Home() {
   //);
   //console.log(id, "test ID");
   //});
-  //console.log(session, "datos sesion");
+
   /*
   <Image
         src={session.user.image}
@@ -75,9 +76,9 @@ export default async function Home() {
         className="m-3"
       />
   */
+  console.log(session, "session xD");
   return (
-    <div className="flex">
-      <Sidebar name={session.user.name} image={session.user.image} />
+    <div>
       <h1>Restaurantes</h1>
     </div>
   );

@@ -4,7 +4,6 @@ import { authOptions } from "@/lib/authOptions";
 import { redirect } from "next/navigation";
 import { SessionServer } from "@/types";
 import dynamic from "next/dynamic";
-const Sidebar = dynamic(() => import("@/components/Sidebar"));
 const UpdateProfile = dynamic(() => import("@/components/UpdateProfile"));
 
 export default async function Perfil() {
@@ -13,8 +12,7 @@ export default async function Perfil() {
     redirect("/");
   }
   return (
-    <div className="flex">
-      <Sidebar name={session.user.name} image={session.user.image} />
+    <div>
       <UpdateProfile />
     </div>
   );

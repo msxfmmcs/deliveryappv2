@@ -10,6 +10,9 @@ const nextConfig = {
       },
     ],
   },
+  env: {
+    TOKEN_MAPBOX: process.env.TOKEN_MAPBOX,
+  },
 };
 
 module.exports = nextConfig;
