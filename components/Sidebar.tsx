@@ -1,4 +1,4 @@
-import { SessionServer, buttonStyle } from "@/types";
+import { SessionServer } from "@/types";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
