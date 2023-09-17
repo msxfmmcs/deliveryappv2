@@ -4,6 +4,7 @@ import { useState } from "react";
 //import { dotenv } from "dotenv";
 import { direccionesValidas } from "@/types";
 import Swal from "sweetalert2";
+//import { redirect } from "next/navigation";
 export default function AddressFormComercio({ email }) {
   //RECORDATORIO: RESTRINGIR ESTE FORMULARIO PARA NO GASTAR DEMASIADAS SESIONES
   //const env = dotenv.config().parsed;
@@ -35,7 +36,7 @@ export default function AddressFormComercio({ email }) {
       direccionesValidas.state.includes(formData.state)
     ) {
       const data = { ...formData, email };
-      console.log(data, "test info backend atornillar");
+      //console.log(data, "test info backend atornillar");
 
       await fetch(`api/address/comercio`, {
         method: "POST",
@@ -47,7 +48,8 @@ export default function AddressFormComercio({ email }) {
         console.log(response, "respuesta backned");
         if (response.status === 200) {
           Swal.fire("¡Éxito!", "Ciudad disponible", "success");
-          //router.push("/");
+          //redirect("/register/comercio");
+          window.location.replace(`${process.env.URL}/register/comercio`);
         } else {
           const mensaje = await response.text();
           Swal.fire("¡ERROR!", mensaje, "error");

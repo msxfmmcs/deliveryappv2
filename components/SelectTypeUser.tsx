@@ -12,7 +12,7 @@ export default function SelectTypeUser({ email }: { email: string }) {
     const val = event.target.value as CurrentRol;
     setCurrentRol(val);
   };
-  console.log(email, "props de email xD");
+  //console.log(email, "props de email xD");
   return (
     <div>
       <select

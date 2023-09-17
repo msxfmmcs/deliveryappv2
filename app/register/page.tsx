@@ -11,5 +11,7 @@ export default async function Register() {
     redirect("/");
   } else if (session.user.rol === undefined) {
     return <SelectTypeUser email={session.user.email} />;
+  } else {
+    redirect("/home");
   }
 }

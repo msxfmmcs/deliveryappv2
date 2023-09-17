@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const comercioRegisterSchema = yup.object({
+export const comercio2RegisterSchema = yup.object({
   nombre: yup.string().required("El nombre es requerido"),
   email: yup
     .string()
@@ -13,7 +13,7 @@ export const comercioRegisterSchema = yup.object({
     // .min(10, "El teléfono debe tener al menos 10 dígitos")
     // .max(10, "El teléfono debe tener como máximo 10 dígitos")
     .required("El whatsapp es requerido"),
-    telefonoFijo: yup
+  telefonoFijo: yup
     .number()
     .typeError("El whatsapp debe ser un número")
     .integer("El whatsapp debe ser un número entero")
@@ -27,5 +27,7 @@ export const comercioRegisterSchema = yup.object({
     .required("El número de documento es requerido")
     .integer("La identificación debe ser un número entero"),
   idType: yup.string().required("El tipo de documento es requerido"),
-  aliasMercadoPago: yup.string().required("el alias de mercadopago es requerido"),
+  aliasMercadoPago: yup
+    .string()
+    .required("el alias de mercadopago es requerido"),
 });

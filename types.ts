@@ -7,6 +7,14 @@ export const direccionesValidas = {
   postcode: ["Q8407"],
   state: ["Neuquén"],
 };
+export interface FormComercio2Data {
+  nombreComercio: "";
+  telefonoFijo: "";
+  whatsapp: "";
+  aliasMercadopago: "";
+  horarios: "";
+  logo: "";
+}
 export interface SessionServer {
   user: {
     rol?: string;

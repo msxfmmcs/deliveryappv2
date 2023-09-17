@@ -33,6 +33,18 @@ export async function POST(request: Request) {
   if (comercio) {
     return new Response("Cuenta ya creada con ese email", { status: 400 });
   }
+  const comercio2 = await prisma.usuarios.findFirst({
+    where: {
+      direccion: body.address,
+      ciudad: body.city,
+      provincia: body.state,
+      codigoPostal: body.postcode,
+      pais: body.country,
+    },
+  });
+  if (comercio2) {
+    return new Response("Direccion ya usada", { status: 400 });
+  }
   const newComercio = await prisma.usuarios.create({
     data: {
       direccion: body.address,

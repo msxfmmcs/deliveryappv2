@@ -12,6 +12,7 @@ const nextConfig = {
   },
   env: {
     TOKEN_MAPBOX: process.env.TOKEN_MAPBOX,
+    URL: process.env.URL,
   },
 };
 

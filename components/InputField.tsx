@@ -1,6 +1,5 @@
 import { InputFieldProps } from "@/types";
 import { ErrorMessage, Field } from "formik";
-import React from "react";
 
 const InputField = ({ id, name, placeholder, type }: InputFieldProps) => {
   return (
