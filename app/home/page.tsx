@@ -25,6 +25,8 @@ import { SessionServer } from "@/types";
 //8)idea: use mapbox and positionstack with smurfs accounts (mapbox requires debit card)
 //9)only use request when user wants to add new address
 export default async function Home() {
+  //10)Que verifique si el comercio termino la segunda parte del registro, si no la termino mandarlo
+  //a /register/comercio
   const session = (await getServerSession(authOptions)) as SessionServer;
   if (!session) {
     redirect("/");
