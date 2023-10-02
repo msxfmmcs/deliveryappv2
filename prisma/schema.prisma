@@ -1,19 +1,26 @@
 generator client {
-  provider = "prisma-client-js"
+        provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+        provider = "postgresql"
+        url      = env("DATABASE_URL")
 }
 
 model Usuarios {
-    id String @id @default(uuid())
-    direccion String
-    ciudad String 
-    provincia String
-    email String @unique
-    codigoPostal String
-    pais String
-    rol String
+        id           String @id @default(uuid())
+        direccion    String 
+        ciudad       String
+        provincia    String
+        email        String @unique
+        codigoPostal String
+        pais         String
+        rol          String
+        horarios     Json?
+        aliasMercadoPago String? @unique
+        telefonoFijo String? @unique
+        nombreComercio String? @unique
+        whatsapp String? @unique
+        logo String?
 }
+

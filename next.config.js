@@ -9,6 +9,7 @@ const nextConfig = {
         //pathname: '/account123/**',
       },
     ],
+    domains: ["res.cloudinary.com"],
   },
   env: {
     TOKEN_MAPBOX: process.env.TOKEN_MAPBOX,

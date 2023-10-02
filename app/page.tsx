@@ -14,7 +14,7 @@ export default async function Home() {
     redirect("/home");
   }
   return (
-    <div className="w-screen h-screen flex items-center justify-center">
+    <div className="h-screen flex items-center justify-center w-screen">
       <SignInWithGoogleButton />
     </div>
   );

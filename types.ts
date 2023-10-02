@@ -7,14 +7,6 @@ export const direccionesValidas = {
   postcode: ["Q8407"],
   state: ["Neuquén"],
 };
-export interface FormComercio2Data {
-  nombreComercio: "";
-  telefonoFijo: "";
-  whatsapp: "";
-  aliasMercadopago: "";
-  horarios: "";
-  logo: "";
-}
 export interface SessionServer {
   user: {
     rol?: string;
@@ -26,26 +18,19 @@ export interface SessionServer {
     provincia?: string;
     pais?: string;
     id?: string;
+    horarios?: {
+      lunes: Array<string>;
+      martes: Array<string>;
+      miercoles: Array<string>;
+      jueves: Array<string>;
+      viernes: Array<string>;
+      sabado: Array<string>;
+      domingo: Array<string>;
+    };
+    nombreComercio?: string;
   };
   expires?: string;
 }
-export interface InputFieldProps {
-  id: string;
-  name: string;
-  type: string;
-  placeholder: string;
-}
-
-export type ComercioRegisterData = {
-  nombre: "";
-  telefonoFijo: "" | string;
-  whatsapp: "";
-  aliasMercadoPago: "";
-  dias: "";
-  horarios: "";
-  logo: "";
-  address: "";
-};
 
 export type CurrentRol = "" | "comercio" | "repartidor" | "cliente";
 export const RolTypes = [

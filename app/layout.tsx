@@ -25,8 +25,9 @@ export default async function RootLayout({
 }) {
   const session = (await getServerSession(authOptions)) as SessionServer;
   //console.log(session, "session xD");
+  //min-[200px]:ml-[20vw] min-[500px]:ml-[100px]
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={poppins.className}>
         <NextAuthProvider>
           <div className="flex">
