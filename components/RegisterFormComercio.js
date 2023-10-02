@@ -2,8 +2,9 @@ import { AddressAutofill } from "@mapbox/search-js-react";
 import { useState } from "react";
 import { direccionesValidas } from "@/types";
 import Swal from "sweetalert2";
-
+import { useRouter } from "next/navigation";
 export default function RegisterFormComercio({ email }) {
+  const router = useRouter();
   const [image, setImage] = useState("");
   const [turnosLunes, setTurnosLunes] = useState([0]);
   const [turnosMartes, setTurnosMartes] = useState([0]);
@@ -172,7 +173,8 @@ export default function RegisterFormComercio({ email }) {
             const mensaje = await response.text();
             Swal.fire("¡Éxito!", mensaje, "success");
             //redirect("/register/comercio");
-            window.location.replace(`${process.env.URL}/home`);
+            //window.location.replace(`${process.env.URL}/home`);
+            router.push("/home");
           } else {
             const mensaje = await response.text();
             Swal.fire("¡ERROR!", mensaje, "error");
