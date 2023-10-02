@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "components/AddressAutoFill.js",
-    "components/AddressFormComercio.js"
+    "components/RegisterFormComercio.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -3,18 +3,18 @@
 import { useState } from "react";
 import { CurrentRol, RolTypes } from "@/types";
 import dynamic from "next/dynamic";
-const AddressFormComercio = dynamic(
-  () => import("@/components/AddressFormComercio")
+const RegisterFormComercio = dynamic(
+  () => import("@/components/RegisterFormComercio.js")
 );
-export default function SelectTypeUser({ email }: { email: string }) {
+export default function SelectRegisterType({ email }: { email: string }) {
   const [currentRol, setCurrentRol] = useState<CurrentRol>("");
   const handleChangeState = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const val = event.target.value as CurrentRol;
     setCurrentRol(val);
   };
-  console.log(email, "props de email xD");
+  //console.log(email, "props de email xD");
   return (
-    <div>
+    <div className="min-[200px]:ml-[20vw] min-[500px]:ml-[100px]">
       <select
         value={currentRol}
         onChange={handleChangeState}
@@ -30,7 +30,7 @@ export default function SelectTypeUser({ email }: { email: string }) {
           </option>
         ))}
       </select>
-      {currentRol == "comercio" && <AddressFormComercio email={email} />}
+      {currentRol == "comercio" && <RegisterFormComercio email={email} />}
     </div>
   );
 }

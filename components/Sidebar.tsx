@@ -9,7 +9,8 @@ export default function Sidebar({ user }: SessionServer) {
   //console.log(user, "session que llega a sidebar");
   if (user) {
     return (
-      <div className="flex flex-col min-[200px]:w-[20vw] min-[500px]:w-[100px] bg-black h-screen items-center">
+      //cambiar h-screen a h-auto cuando haya
+      <div className="flex flex-col min-[200px]:w-[20vw] min-[500px]:w-[100px] bg-black fixed top-0 bottom-0 left-0 items-center">
         <Image
           src={user.image}
           width={90}
@@ -26,18 +27,13 @@ export default function Sidebar({ user }: SessionServer) {
           href="/home"
           className="text-center bg-[#238523] rounded-md p-1 min-[200px]:w-[calc(20vw-3px)] m-1 min-[500px]:w-[90px] min-[200px]:text-[4vw] min-[400px]:text-[16px]"
         >
-          Delivery
+          Inicio
         </Link>
-        <Link
-          href="/perfil"
-          className="text-center bg-[#238523] rounded-md p-1 min-[200px]:w-[calc(20vw-10px)] m-1 min-[500px]:w-[90px] min-[200px]:text-[4vw] min-[400px]:text-[16px]"
-        >
-          Perfil
-        </Link>
+
         <SignOut />
       </div>
     );
   } else {
-    return false;
+    return null;
   }
 }
